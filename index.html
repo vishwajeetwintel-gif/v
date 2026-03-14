@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Round AI Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Navigation / Header Bar -->
+  <header class="top-nav">
+    <div class="logo">
+      <div class="logo-mark"></div>
+      <span>Interview Copilot</span>
+    </div>
+    
+    <div class="controls">
+      <div class="status-indicator">
+        <div id="status-dot" class="dot"></div>
+        <div id="visualizer" class="visualizer hidden">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <span id="status-text" class="status-text">Standby</span>
+      </div>
+      <button id="reset-btn" class="nav-btn neutral">Clear Session</button>
+      <button id="start-btn" class="nav-btn primary">Connect Audio/Video</button>
+      <button id="stop-btn" class="nav-btn danger" disabled>End Session</button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="dashboard">
+    
+    <!-- Left Column: Live Transcription Stream -->
+    <section class="log-panel cyber-panel">
+      <div class="panel-header">
+        <div class="header-indicator pulse-blue"></div>
+        <h3>Live Interview Stream</h3>
+      </div>
+      <div id="transcript-content" class="content-scroll">
+        <div class="welcome-msg">
+          <p>Waiting for interview to begin...</p>
+          <p class="subtext">Capturing english continuously. Smart detection enabled.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: AI Suggestion output -->
+    <section class="teleprompter-panel cyber-panel">
+      <div class="panel-header focus-header">
+        <div class="header-indicator pulse-indigo"></div>
+        <h3 style="flex: 1;">Active Question & Copilot</h3>
+        <button id="force-btn" class="nav-btn primary" style="padding: 0.3rem 0.75rem; font-size: 0.75rem; border-radius: 4px;">Get Response</button>
+      </div>
+      
+      <div class="copilot-container">
+        
+        <div id="active-question-box" class="question-box hidden">
+           <span class="label">DETECTED QUESTION</span>
+           <h4 id="active-question-text">--</h4>
+        </div>
+
+        <div id="ai-answer-content" class="answer-content">
+          <div class="waiting-state">
+            <svg class="radar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+            <p>Scanning transcription for full questions...</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+  
+  <script src="script.js"></script>
+</body>
+</html>
